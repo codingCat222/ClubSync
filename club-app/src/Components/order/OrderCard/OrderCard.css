@@ -1,0 +1,145 @@
+/* src/components/order/OrderCard/OrderCard.css */
+.order-card {
+  padding: 24px;
+  transition: all var(--transition-normal);
+}
+
+.order-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+
+.order-info {
+  flex: 1;
+}
+
+.order-id {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-bottom: 8px;
+}
+
+.order-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.customer-info,
+.club-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+.customer-info svg,
+.club-info svg {
+  color: var(--gray-500);
+  font-size: var(--text-sm);
+}
+
+.order-time {
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+}
+
+.order-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.order-status.pending {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning-color);
+}
+
+.order-status.preparing {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary-color);
+}
+
+.order-status.completed {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+}
+
+.order-status.cancelled {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger-color);
+}
+
+.order-details {
+  margin-bottom: 20px;
+  padding: 20px 0;
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.detail-row {
+  display: flex;
+  gap: 24px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.detail-item span {
+  font-size: var(--text-xs);
+  color: var(--gray-600);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.detail-item strong {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.detail-item .amount {
+  color: var(--success-color);
+  font-weight: 700;
+}
+
+.order-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .order-header {
+    flex-direction: column;
+  }
+  
+  .detail-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .order-actions {
+    flex-direction: column;
+  }
+}

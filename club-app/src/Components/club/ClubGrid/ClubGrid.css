@@ -1,0 +1,13 @@
+.club-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 20px 0;
+}
+
+.empty-grid {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--gray-500);
+  font-size: var(--text-lg);
+}

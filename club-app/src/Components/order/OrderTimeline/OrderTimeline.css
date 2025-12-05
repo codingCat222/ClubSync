@@ -1,0 +1,121 @@
+/* src/components/order/OrderTimeline/OrderTimeline.css */
+.order-timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.order-timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--gray-300);
+}
+
+.timeline-step {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.timeline-step:last-child {
+  margin-bottom: 0;
+}
+
+.step-indicator {
+  position: absolute;
+  left: -30px;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  background: var(--gray-200);
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.timeline-step.completed .step-indicator {
+  background: var(--success-color);
+  color: white;
+}
+
+.timeline-step.current .step-indicator {
+  background: var(--primary-color);
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+.step-icon {
+  font-size: var(--text-sm);
+}
+
+.step-number {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--gray-600);
+}
+
+.timeline-step.completed .step-number,
+.timeline-step.current .step-number {
+  color: white;
+}
+
+.step-content {
+  padding-top: 4px;
+}
+
+.step-title {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 4px;
+}
+
+.step-description {
+  color: var(--gray-600);
+  font-size: var(--text-sm);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.step-time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-xs);
+  color: var(--gray-500);
+}
+
+.step-time svg {
+  font-size: var(--text-xs);
+}
+
+.step-line {
+  position: absolute;
+  left: -30px;
+  top: 30px;
+  bottom: -32px;
+  width: 2px;
+  background: var(--gray-300);
+  z-index: 0;
+}
+
+.step-line.completed {
+  background: var(--success-color);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(37, 99, 235, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+  }
+}

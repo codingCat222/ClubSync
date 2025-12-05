@@ -1,0 +1,98 @@
+/* src/components/order/OrderItem/OrderItem.css */
+.order-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.order-item:hover {
+  background: var(--gray-100);
+}
+
+.item-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.item-main {
+  flex: 1;
+}
+
+.item-name {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 4px;
+}
+
+.item-description {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.item-quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 80px;
+}
+
+.quantity-label {
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+}
+
+.quantity {
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.item-price {
+  font-weight: 700;
+  color: var(--dark-color);
+  min-width: 100px;
+  text-align: right;
+}
+
+.remove-item {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-100);
+  border: none;
+  color: var(--danger-color);
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+}
+
+.remove-item:hover {
+  background: var(--danger-color);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .item-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .item-quantity {
+    min-width: auto;
+  }
+  
+  .item-price {
+    min-width: auto;
+    text-align: left;
+  }
+}

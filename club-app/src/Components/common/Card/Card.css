@@ -1,0 +1,28 @@
+/* src/components/common/Card/Card.css */
+.card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+}
+
+.card-hoverable {
+  cursor: pointer;
+}
+
+.card-hoverable:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.card-small {
+  padding: 16px;
+}
+
+.card-medium {
+  padding: 24px;
+}
+
+.card-large {
+  padding: 32px;
+}

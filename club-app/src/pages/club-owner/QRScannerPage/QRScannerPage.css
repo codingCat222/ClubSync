@@ -1,0 +1,372 @@
+/* src/pages/club-owner/QRScannerPage/QRScannerPage.css */
+.qr-scanner-page {
+  min-height: calc(100vh - 200px);
+}
+
+.qr-scanner-header {
+  margin-bottom: 32px;
+}
+
+.qr-scanner-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.scanner-card {
+  padding: 32px;
+}
+
+.scanner-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.scanner-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--primary-color);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-2xl);
+  color: white;
+}
+
+.scanner-info h3 {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 4px;
+}
+
+.scanner-info p {
+  color: var(--gray-600);
+  font-size: var(--text-base);
+}
+
+.scanner-preview {
+  position: relative;
+  height: 300px;
+  background: var(--gray-900);
+  border-radius: var(--radius-lg);
+  margin-bottom: 32px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scanning-animation {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.scanner-beam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary-color);
+  box-shadow: 0 0 10px var(--primary-color);
+  animation: scan 2s linear infinite;
+}
+
+.scanner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.scanning-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-weight: 600;
+  font-size: var(--text-lg);
+}
+
+.scanning-text svg {
+  font-size: var(--text-xl);
+}
+
+.scanner-placeholder {
+  text-align: center;
+  color: white;
+}
+
+.scanner-placeholder svg {
+  font-size: 80px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.scanner-placeholder p {
+  font-size: var(--text-lg);
+  color: var(--gray-400);
+}
+
+.order-details-card {
+  padding: 32px;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.order-header h3 {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--dark-color);
+  margin: 0;
+}
+
+.order-status {
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.order-status.ready {
+  background: var(--success-color);
+  color: white;
+}
+
+.order-info {
+  margin-bottom: 32px;
+}
+
+.info-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.info-row:last-child {
+  margin-bottom: 0;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--gray-100);
+  border-radius: var(--radius-md);
+}
+
+.info-item svg {
+  font-size: var(--text-xl);
+  color: var(--primary-color);
+}
+
+.info-item label {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+  margin-bottom: 4px;
+}
+
+.info-item strong {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.order-items {
+  margin-bottom: 32px;
+}
+
+.order-items h4 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 20px;
+}
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.item-row:last-child {
+  border-bottom: none;
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.item-name {
+  font-weight: 500;
+  color: var(--gray-800);
+}
+
+.item-quantity {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+}
+
+.item-price {
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: var(--gray-100);
+  border-radius: var(--radius-lg);
+  margin-bottom: 32px;
+}
+
+.total-label {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.total-amount {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--success-color);
+}
+
+.order-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.scan-history-section {
+  margin-top: 32px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.section-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--dark-color);
+  margin: 0;
+}
+
+.history-table {
+  overflow-x: auto;
+}
+
+.history-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-table th {
+  padding: 16px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--gray-700);
+  font-size: var(--text-sm);
+  background: var(--gray-100);
+  white-space: nowrap;
+}
+
+.history-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--gray-200);
+  vertical-align: middle;
+}
+
+.history-table tbody tr:hover {
+  background: var(--gray-50);
+}
+
+.scan-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  width: fit-content;
+}
+
+.scan-status.success {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+}
+
+.scan-status.failed {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger-color);
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(300px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .scanner-card,
+  .order-details-card {
+    padding: 24px 20px;
+  }
+  
+  .info-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .order-actions {
+    flex-direction: column;
+  }
+  
+  .history-table {
+    min-width: 600px;
+  }
+}

@@ -1,0 +1,27 @@
+/* src/components/ui/Rating/Rating.css */
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rating-small .rating-star {
+  font-size: var(--text-base);
+}
+
+.rating-medium .rating-star {
+  font-size: var(--text-lg);
+}
+
+.rating-large .rating-star {
+  font-size: var(--text-xl);
+}
+
+.rating-star {
+  color: var(--gray-300);
+  transition: color var(--transition-fast);
+}
+
+.rating-star.filled {
+  color: var(--warning-color);
+}

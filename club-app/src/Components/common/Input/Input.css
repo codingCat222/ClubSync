@@ -1,0 +1,54 @@
+/* src/components/common/Input/Input.css */
+.input-wrapper {
+  width: 100%;
+}
+
+.input-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--gray-700);
+  font-size: var(--text-sm);
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 16px;
+  color: var(--gray-500);
+  font-size: var(--text-base);
+}
+
+.input-field {
+  width: 100%;
+  padding: 14px 16px;
+  padding-left: icon ? '44px' : '16px';
+  border: 2px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  color: var(--gray-900);
+  background: white;
+  transition: all var(--transition-fast);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.input-error .input-field {
+  border-color: var(--danger-color);
+}
+
+.input-error-message {
+  display: block;
+  margin-top: 6px;
+  font-size: var(--text-sm);
+  color: var(--danger-color);
+}

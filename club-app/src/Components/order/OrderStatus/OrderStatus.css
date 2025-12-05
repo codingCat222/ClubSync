@@ -1,0 +1,58 @@
+/* src/components/order/OrderStatus/OrderStatus.css */
+.order-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.order-status-small .status-icon {
+  width: 24px;
+  height: 24px;
+  font-size: var(--text-sm);
+}
+
+.order-status-medium .status-icon {
+  width: 32px;
+  height: 32px;
+  font-size: var(--text-base);
+}
+
+.order-status-large .status-icon {
+  width: 40px;
+  height: 40px;
+  font-size: var(--text-lg);
+}
+
+.status-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+}
+
+.status-warning {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning-color);
+}
+
+.status-primary {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary-color);
+}
+
+.status-success {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+}
+
+.status-danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger-color);
+}
+
+.status-label {
+  font-weight: 600;
+  color: var(--gray-700);
+  font-size: var(--text-sm);
+  text-transform: capitalize;
+}

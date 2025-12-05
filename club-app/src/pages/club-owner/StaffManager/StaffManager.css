@@ -1,0 +1,346 @@
+/* src/pages/club-owner/StaffManager/StaffManager.css */
+.staff-manager-page {
+  min-height: calc(100vh - 200px);
+}
+
+.staff-manager-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.search-card {
+  margin-bottom: 32px;
+}
+
+.search-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+
+.search-input {
+  flex: 1;
+  max-width: 400px;
+}
+
+.stats-summary {
+  display: flex;
+  gap: 32px;
+}
+
+.stats-summary .stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stats-summary .stat span {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+}
+
+.stats-summary .stat strong {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--dark-color);
+}
+
+.stats-summary .stat .success {
+  color: var(--success-color);
+}
+
+.roles-section {
+  margin-bottom: 32px;
+}
+
+.roles-section h3 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 20px;
+}
+
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.role-card {
+  padding: 20px;
+  transition: all var(--transition-normal);
+}
+
+.role-card:hover {
+  transform: translateY(-4px);
+}
+
+.role-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.role-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-lg);
+  color: white;
+}
+
+.role-info h4 {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 4px;
+}
+
+.role-info p {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+}
+
+.staff-table-section {
+  margin-top: 32px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.staff-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.staff-table thead {
+  background: var(--gray-100);
+}
+
+.staff-table th {
+  padding: 16px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--gray-700);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+
+.staff-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--gray-200);
+  vertical-align: middle;
+}
+
+.staff-table tbody tr:hover {
+  background: var(--gray-50);
+}
+
+.staff-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.staff-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: white;
+  font-size: var(--text-lg);
+}
+
+.staff-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.staff-details strong {
+  color: var(--dark-color);
+  font-weight: 600;
+}
+
+.staff-email {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+}
+
+.role-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--gray-100);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  width: fit-content;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-sm);
+  color: var(--gray-700);
+}
+
+.contact-item svg {
+  width: 14px;
+  color: var(--gray-500);
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  width: fit-content;
+}
+
+.status-badge.active {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+}
+
+.status-badge.inactive {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger-color);
+}
+
+.last-active {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+}
+
+.staff-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-100);
+  border: none;
+  color: var(--gray-700);
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+}
+
+.action-btn:hover {
+  background: var(--gray-200);
+}
+
+.action-btn.danger {
+  color: var(--danger-color);
+}
+
+.action-btn.danger:hover {
+  background: var(--danger-color);
+  color: white;
+}
+
+.add-staff-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.role-select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  color: var(--gray-900);
+  background: white;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+}
+
+.role-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.delete-confirmation {
+  text-align: center;
+}
+
+.delete-confirmation p {
+  margin-bottom: 16px;
+  color: var(--gray-700);
+}
+
+.warning-text {
+  color: var(--danger-color) !important;
+  font-weight: 600;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+@media (max-width: 1024px) {
+  .search-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .search-input {
+    max-width: 100%;
+  }
+  
+  .stats-summary {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .staff-manager-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .roles-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .staff-table {
+    min-width: 800px;
+  }
+}

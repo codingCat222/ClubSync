@@ -1,0 +1,176 @@
+/* src/styles/responsive.css */
+/* Extra small devices (phones, 576px and down) */
+@media (max-width: 576px) {
+  .container {
+    padding: 0 16px;
+  }
+  
+  .section-title {
+    font-size: var(--text-xl);
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: var(--text-sm);
+  }
+  
+  .card {
+    padding: 20px 16px;
+  }
+}
+
+/* Small devices (phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 992px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* Grid system */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -12px;
+}
+
+.col {
+  padding: 0 12px;
+  flex: 1 0 0%;
+}
+
+.col-1 { width: 8.33%; }
+.col-2 { width: 16.66%; }
+.col-3 { width: 25%; }
+.col-4 { width: 33.33%; }
+.col-5 { width: 41.66%; }
+.col-6 { width: 50%; }
+.col-7 { width: 58.33%; }
+.col-8 { width: 66.66%; }
+.col-9 { width: 75%; }
+.col-10 { width: 83.33%; }
+.col-11 { width: 91.66%; }
+.col-12 { width: 100%; }
+
+/* Hide elements */
+.hide-xs {
+  display: none;
+}
+
+@media (min-width: 576px) {
+  .hide-sm {
+    display: none;
+  }
+  
+  .show-sm {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .hide-md {
+    display: none;
+  }
+  
+  .show-md {
+    display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  .hide-lg {
+    display: none;
+  }
+  
+  .show-lg {
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hide-xl {
+    display: none;
+  }
+  
+  .show-xl {
+    display: block;
+  }
+}
+
+/* Utility classes for responsive text */
+.text-xs-responsive {
+  font-size: var(--text-xs);
+}
+
+.text-sm-responsive {
+  font-size: var(--text-sm);
+}
+
+.text-base-responsive {
+  font-size: var(--text-base);
+}
+
+.text-lg-responsive {
+  font-size: var(--text-lg);
+}
+
+.text-xl-responsive {
+  font-size: var(--text-xl);
+}
+
+@media (max-width: 768px) {
+  .text-xs-responsive { font-size: calc(var(--text-xs) * 0.9); }
+  .text-sm-responsive { font-size: calc(var(--text-sm) * 0.9); }
+  .text-base-responsive { font-size: calc(var(--text-base) * 0.9); }
+  .text-lg-responsive { font-size: calc(var(--text-lg) * 0.9); }
+  .text-xl-responsive { font-size: calc(var(--text-xl) * 0.9); }
+}
+
+/* Responsive spacing */
+.p-responsive {
+  padding: 16px;
+}
+
+.m-responsive {
+  margin: 16px;
+}
+
+@media (min-width: 768px) {
+  .p-responsive {
+    padding: 24px;
+  }
+  
+  .m-responsive {
+    margin: 24px;
+  }
+}
+
+@media (min-width: 992px) {
+  .p-responsive {
+    padding: 32px;
+  }
+  
+  .m-responsive {
+    margin: 32px;
+  }
+}

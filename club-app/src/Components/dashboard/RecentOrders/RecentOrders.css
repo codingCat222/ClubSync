@@ -1,0 +1,116 @@
+/* src/components/dashboard/RecentOrders/RecentOrders.css */
+.recent-orders {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.section-header h3 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--dark-color);
+  margin: 0;
+}
+
+.orders-table {
+  overflow-x: auto;
+}
+
+.orders-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table th {
+  padding: 16px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--gray-700);
+  font-size: var(--text-sm);
+  background: var(--gray-100);
+  border-bottom: 2px solid var(--gray-200);
+  white-space: nowrap;
+}
+
+.orders-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--gray-200);
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+}
+
+.order-id {
+  color: var(--primary-color);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.order-id:hover {
+  text-decoration: underline;
+}
+
+.customer-name {
+  font-weight: 500;
+  color: var(--dark-color);
+}
+
+.date {
+  color: var(--gray-600);
+  white-space: nowrap;
+}
+
+.amount {
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  display: inline-block;
+}
+
+.status.pending {
+  background: var(--warning-light);
+  color: var(--warning-dark);
+}
+
+.status.delivered {
+  background: var(--success-light);
+  color: var(--success-dark);
+}
+
+.status.processing {
+  background: var(--info-light);
+  color: var(--info-dark);
+}
+
+.status.cancelled {
+  background: var(--error-light);
+  color: var(--error-dark);
+}
+
+.view-all {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: var(--text-sm);
+}
+
+.view-all:hover {
+  text-decoration: underline;
+}

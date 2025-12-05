@@ -1,0 +1,31 @@
+/* src/components/ui/EmptyState/EmptyState.css */
+.empty-state {
+  text-align: center;
+  padding: 60px 40px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.empty-icon {
+  font-size: 64px;
+  margin-bottom: 24px;
+  opacity: 0.5;
+}
+
+.empty-title {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 12px;
+}
+
+.empty-message {
+  color: var(--gray-600);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.empty-action {
+  margin-top: 24px;
+}

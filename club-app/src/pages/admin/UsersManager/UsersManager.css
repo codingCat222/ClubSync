@@ -1,0 +1,206 @@
+/* src/pages/admin/UsersManager/UsersManager.css */
+.users-manager-page {
+  min-height: calc(100vh - 200px);
+}
+
+.users-manager-header {
+  margin-bottom: 32px;
+}
+
+.controls-card {
+  margin-bottom: 32px;
+  padding: 24px;
+}
+
+.controls-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.role-filters {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.role-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--gray-100);
+  border: 2px solid transparent;
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  color: var(--gray-700);
+  transition: all var(--transition-fast);
+}
+
+.role-filter:hover {
+  background: var(--gray-200);
+}
+
+.role-filter.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.users-table-section {
+  margin-top: 32px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table thead {
+  background: var(--gray-100);
+}
+
+.users-table th {
+  padding: 16px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--gray-700);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+
+.users-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--gray-200);
+  vertical-align: middle;
+}
+
+.users-table tbody tr:hover {
+  background: var(--gray-50);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: white;
+  font-size: var(--text-lg);
+  flex-shrink: 0;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.user-details strong {
+  color: var(--dark-color);
+  font-weight: 600;
+}
+
+.user-details span {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+}
+
+.user-club {
+  font-size: var(--text-xs) !important;
+  color: var(--gray-500) !important;
+  font-style: italic;
+}
+
+.user-type {
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  width: fit-content;
+}
+
+.user-type.user {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary-color);
+}
+
+.user-type['club-owner'] {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+}
+
+.user-status {
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: capitalize;
+  width: fit-content;
+}
+
+.user-status.active {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+}
+
+.user-status.suspended {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger-color);
+}
+
+.join-date {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+}
+
+.user-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-100);
+  border: none;
+  color: var(--gray-700);
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+}
+
+.action-btn:hover {
+  background: var(--gray-200);
+}
+
+@media (max-width: 768px) {
+  .users-table {
+    min-width: 800px;
+  }
+  
+  .role-filters {
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+  
+  .role-filter {
+    flex-shrink: 0;
+  }
+}

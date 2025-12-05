@@ -1,0 +1,124 @@
+/* src/pages/public/SignupChoice/SignupChoice.css */
+.signup-choice-page {
+  min-height: calc(100vh - 200px);
+  padding: 60px 0;
+  background: var(--light-color);
+}
+
+.signup-choice-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.page-title {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-bottom: 12px;
+}
+
+.page-subtitle {
+  font-size: var(--text-lg);
+  color: var(--gray-600);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.signup-options {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.option-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.signup-option {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  text-align: center;
+  transition: all var(--transition-normal);
+}
+
+.signup-option:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.option-icon {
+  font-size: 64px;
+  color: var(--primary-color);
+  margin-bottom: 24px;
+}
+
+.option-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--dark-color);
+}
+
+.option-description {
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.option-features {
+  text-align: left;
+  margin-bottom: 32px;
+  flex: 1;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: var(--gray-700);
+}
+
+.feature svg {
+  color: var(--success-color);
+  font-size: var(--text-sm);
+}
+
+.option-action {
+  margin-top: auto;
+}
+
+.signup-login {
+  text-align: center;
+  color: var(--gray-600);
+}
+
+.signup-login a {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signup-login a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .option-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .signup-option {
+    padding: 30px 20px;
+  }
+}

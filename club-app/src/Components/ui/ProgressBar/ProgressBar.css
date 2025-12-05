@@ -1,0 +1,55 @@
+/* src/components/ui/ProgressBar/ProgressBar.css */
+.progress-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-track {
+  flex: 1;
+  background: var(--gray-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-small .progress-track {
+  height: 4px;
+}
+
+.progress-medium .progress-track {
+  height: 8px;
+}
+
+.progress-large .progress-track {
+  height: 12px;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+.progress-primary {
+  background: var(--primary-color);
+}
+
+.progress-success {
+  background: var(--success-color);
+}
+
+.progress-warning {
+  background: var(--warning-color);
+}
+
+.progress-danger {
+  background: var(--danger-color);
+}
+
+.progress-label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--gray-700);
+  min-width: 40px;
+  text-align: right;
+}

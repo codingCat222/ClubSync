@@ -1,0 +1,83 @@
+/* src/components/common/Alert/Alert.css */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 16px;
+  animation: slideInUp 0.3s ease-out;
+}
+
+.alert-success {
+  background: rgba(16, 185, 129, 0.1);
+  border-left: 4px solid var(--success-color);
+}
+
+.alert-warning {
+  background: rgba(245, 158, 11, 0.1);
+  border-left: 4px solid var(--warning-color);
+}
+
+.alert-danger {
+  background: rgba(239, 68, 68, 0.1);
+  border-left: 4px solid var(--danger-color);
+}
+
+.alert-info {
+  background: rgba(37, 99, 235, 0.1);
+  border-left: 4px solid var(--primary-color);
+}
+
+.alert-icon {
+  font-size: var(--text-xl);
+  flex-shrink: 0;
+}
+
+.alert-success .alert-icon {
+  color: var(--success-color);
+}
+
+.alert-warning .alert-icon {
+  color: var(--warning-color);
+}
+
+.alert-danger .alert-icon {
+  color: var(--danger-color);
+}
+
+.alert-info .alert-icon {
+  color: var(--primary-color);
+}
+
+.alert-content {
+  flex: 1;
+}
+
+.alert-title {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 4px;
+}
+
+.alert-message {
+  font-size: var(--text-sm);
+  color: var(--gray-700);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.alert-close {
+  background: none;
+  border: none;
+  color: var(--gray-500);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  padding: 4px;
+  transition: color var(--transition-fast);
+}
+
+.alert-close:hover {
+  color: var(--gray-700);
+}

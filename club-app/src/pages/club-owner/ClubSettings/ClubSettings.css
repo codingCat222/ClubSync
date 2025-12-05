@@ -1,0 +1,320 @@
+/* src/pages/club-owner/ClubSettings/ClubSettings.css */
+.club-settings-page {
+  min-height: calc(100vh - 200px);
+}
+
+.club-settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.settings-content {
+  margin-top: 32px;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.settings-section {
+  margin-bottom: 32px;
+}
+
+.settings-section:last-child {
+  margin-bottom: 0;
+}
+
+.settings-section.danger {
+  border: 2px solid var(--danger-color);
+}
+
+.section-header {
+  margin-bottom: 24px;
+}
+
+.section-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 8px;
+}
+
+.section-header p {
+  color: var(--gray-600);
+  font-size: var(--text-sm);
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.logo-upload {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px;
+  background: var(--gray-100);
+  border-radius: var(--radius-lg);
+}
+
+.logo-preview {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.logo-placeholder {
+  width: 80px;
+  height: 80px;
+  background: var(--primary-gradient);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+.logo-info h4 {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 4px;
+}
+
+.logo-info p {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+}
+
+.description-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  color: var(--gray-900);
+  background: white;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+  resize: vertical;
+}
+
+.description-textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.hours-row:last-child {
+  border-bottom: none;
+}
+
+.day-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 120px;
+}
+
+.day-name {
+  font-weight: 500;
+  color: var(--gray-700);
+  text-transform: capitalize;
+}
+
+.toggle-switch {
+  background: none;
+  border: none;
+  font-size: var(--text-xl);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.toggle-switch.on {
+  color: var(--success-color);
+}
+
+.toggle-switch.off {
+  color: var(--gray-400);
+}
+
+.hours-inputs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  max-width: 300px;
+}
+
+.time-input {
+  flex: 1;
+}
+
+.hours-separator {
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+.map-preview {
+  height: 200px;
+  background: var(--gray-100);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.map-placeholder {
+  text-align: center;
+  color: var(--gray-600);
+}
+
+.map-marker {
+  font-size: 48px;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+}
+
+.feature-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.feature-checkbox {
+  display: none;
+}
+
+.feature-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gray-400);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.feature-checkbox:checked + .feature-custom {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.feature-checkbox:checked + .feature-custom::after {
+  content: '✓';
+  color: white;
+  font-size: 12px;
+}
+
+.feature-text {
+  font-weight: 500;
+  color: var(--gray-700);
+  font-size: var(--text-sm);
+  text-transform: capitalize;
+}
+
+.social-preview {
+  padding: 20px;
+  background: var(--gray-100);
+  border-radius: var(--radius-lg);
+  margin-top: 12px;
+}
+
+.social-preview h4 {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 8px;
+}
+
+.social-preview p {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+.danger-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.danger-note {
+  font-size: var(--text-sm);
+  color: var(--danger-color);
+  line-height: 1.5;
+}
+
+@media (max-width: 1200px) {
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .club-settings-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .logo-upload {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hours-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .hours-inputs {
+    max-width: 100%;
+  }
+  
+  .danger-actions {
+    flex-direction: column;
+  }
+}

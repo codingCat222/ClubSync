@@ -1,0 +1,193 @@
+/* src/pages/admin/ClubApprovals/ClubApprovals.css */
+.club-approvals-page {
+  min-height: calc(100vh - 200px);
+}
+
+.approvals-header {
+  margin-bottom: 32px;
+}
+
+.controls-card {
+  margin-bottom: 32px;
+  padding: 24px;
+}
+
+.controls-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.search-section {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+}
+
+.stats-summary {
+  display: flex;
+  gap: 32px;
+}
+
+.stats-summary .stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stats-summary .stat span {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+}
+
+.stats-summary .stat strong {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--dark-color);
+}
+
+.stats-summary .stat .success {
+  color: var(--success-color);
+}
+
+.clubs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.club-card {
+  padding: 24px;
+}
+
+.club-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.club-info h3 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-bottom: 8px;
+}
+
+.club-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.category {
+  padding: 4px 12px;
+  background: var(--gray-100);
+  color: var(--gray-700);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.date {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+}
+
+.club-status {
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.club-status.pending {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning-color);
+}
+
+.club-details {
+  margin-bottom: 24px;
+}
+
+.detail-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.detail-item {
+  flex: 1;
+}
+
+.detail-item.full {
+  flex: 2;
+}
+
+.detail-item label {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--gray-600);
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.detail-item span {
+  display: block;
+  font-size: var(--text-base);
+  color: var(--gray-900);
+  font-weight: 500;
+}
+
+.documents-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.document-tag {
+  padding: 6px 12px;
+  background: var(--gray-100);
+  color: var(--gray-700);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+}
+
+.club-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .club-header {
+    flex-direction: column;
+  }
+  
+  .detail-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .club-actions {
+    flex-direction: column;
+  }
+  
+  .search-section {
+    flex-direction: column;
+  }
+}
