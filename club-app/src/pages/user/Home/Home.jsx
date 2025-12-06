@@ -2,8 +2,8 @@
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFire, faStar, faClock, faTags } from '@fortawesome/free-solid-svg-icons'
-import ClubGrid from '../../../components/club/ClubGrid/ClubGrid'
-import Card from '../../../components/common/Card/Card'
+import ClubGrid from '../../../Components/club/ClubGrid/ClubGrid'
+import Card from '../../../Components/common/Card/Card'
 import './Home.css'
 
 function Home() {

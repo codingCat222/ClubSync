@@ -15,9 +15,9 @@ import {
   faMoneyBillWave,
   faShoppingBag
 } from '@fortawesome/free-solid-svg-icons'
-import Card from '../../../components/common/Card/Card'
-import Button from '../../../components/common/Button/Button'
-import Input from '../../../components/common/Input/Input'
+import Card from '../../../Components/common/Card/Card'
+import Button from '../../../Components/common/Button/Button'
+import Input from '../../../Components/common/Input/Input'
 import './Orders.css'
 
 function Orders() {

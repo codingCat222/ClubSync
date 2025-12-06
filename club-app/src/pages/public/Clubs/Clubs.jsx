@@ -2,9 +2,9 @@
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faFilter } from '@fortawesome/free-solid-svg-icons'
-import ClubGrid from '../../../components/club/ClubGrid/ClubGrid'
-import Button from '../../../components/common/Button/Button'
-import Input from '../../../components/common/Input/Input'
+import ClubGrid from '../../../Components/club/ClubGrid/ClubGrid'
+import Button from '../../../Components/common/Button/Button'
+import Input from '../../../Components/common/Input/Input'
 import './Club.css'
 
 function Clubs() {

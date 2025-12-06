@@ -9,7 +9,7 @@ import {
   faArrowUp,
   faArrowDown
 } from '@fortawesome/free-solid-svg-icons'
-import Card from '../../../components/common/Card/Card'
+import Card from '../../../Components/common/Card/Card'
 import './AdminDashboard.css'
 
 function AdminDashboard() {

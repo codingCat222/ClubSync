@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faBuilding, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
-import Card from '../../../components/common/Card/Card'
+import Card from '../../../Components/common/Card/Card'
 import './SignupChoice.css'
 
 function SignupChoice() {

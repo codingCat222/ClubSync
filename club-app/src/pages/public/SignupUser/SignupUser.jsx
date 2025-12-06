@@ -21,9 +21,9 @@ import {
   faUserCheck
 } from '@fortawesome/free-solid-svg-icons'
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons'
-import Button from '../../../components/common/Button/Button'
-import Input from '../../../components/common/Input/Input'
-import Card from '../../../components/common/Card/Card'
+import Button from '../../../Components/common/Button/Button'
+import Input from '../../../Components/common/Input/Input'
+import Card from '../../../Components/common/Card/Card'
 import './SignupUser.css'
 
 function SignupUser() {

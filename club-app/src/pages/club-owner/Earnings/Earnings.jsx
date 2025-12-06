@@ -13,8 +13,8 @@ import {
   faWallet,
   faReceipt
 } from '@fortawesome/free-solid-svg-icons'
-import Card from '../../../components/common/Card/Card'
-import Button from '../../../components/common/Button/Button'
+import Card from '../../../Components/common/Card/Card'
+import Button from '../../../Components/common/Button/Button'
 import './Earnings.css'
 
 function Earnings() {

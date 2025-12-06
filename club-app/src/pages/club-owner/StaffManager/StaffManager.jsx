@@ -16,10 +16,10 @@ import {
   faTimesCircle,
   faEllipsisV
 } from '@fortawesome/free-solid-svg-icons'
-import Card from '../../../components/common/Card/Card'
-import Button from '../../../components/common/Button/Button'
-import Input from '../../../components/common/Input/Input'
-import Modal from '../../../components/common/Modal/Modal'
+import Card from '../../../Components/common/Card/Card'
+import Button from '../../../Components/common/Button/Button'
+import Input from '../../../Components/common/Input/Input'
+import Modal from '../../../Components/common/Modal/Modal'
 import './StaffManager.css'
 
 function StaffManager() {

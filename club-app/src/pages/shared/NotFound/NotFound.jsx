@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import Button from '../../../components/common/Button/Button'
+import Button from '../../../Components/common/Button/Button'
 import './NotFound.css'
 
 function NotFound() {
