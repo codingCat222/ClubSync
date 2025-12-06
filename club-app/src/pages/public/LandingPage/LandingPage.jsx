@@ -23,7 +23,7 @@ import {
   faRocket,
   faGem
 } from '@fortawesome/free-solid-svg-icons'
-import Button from '../../../components/common/Button/Button'
+import Button from '../../../Components/common/Button/Button'
 import './LandingPage.css'
 
 function LandingPage() {
