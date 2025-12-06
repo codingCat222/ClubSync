@@ -3,9 +3,9 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
-import Button from '../../../components/common/Button/Button'
-import Input from '../../../components/common/Input/Input'
-import Card from '../../../components/common/Card/Card'
+import Button from '../../../Components/common/Button/Button'
+import Input from '../../../Components/common/Input/Input'
+import Card from '../../../Components/common/Card/Card'
 import './Login.css'
 
 function Login() {

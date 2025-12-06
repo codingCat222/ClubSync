@@ -47,7 +47,7 @@ function Sidebar() {
       <div className="sidebar-header">
         <div className="sidebar-logo">
           <span className="logo-icon">🍸</span>
-          <span className="logo-text">ClubFlow</span>
+          <span className="logo-text">ClubSync</span>
         </div>
       </div>
 

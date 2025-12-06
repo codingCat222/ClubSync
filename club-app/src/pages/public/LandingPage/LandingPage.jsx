@@ -13,16 +13,15 @@ import {
   faStar,
   faMobileAlt,
   faMapMarkerAlt,
+  faMusic,
   faGlassCheers,
   faWallet,
   faCheckCircle,
   faQuestionCircle,
   faArrowRight,
-  faCocktail, // Font Awesome cocktail icon
+  faCocktail,
   faRocket,
-  faGem,
-  faTrophy,
-  faBeer
+  faGem
 } from '@fortawesome/free-solid-svg-icons'
 import Button from '../../../components/common/Button/Button'
 import './LandingPage.css'
@@ -38,8 +37,9 @@ function LandingPage() {
     satisfaction: 0,
     pickup: 0
   })
-  const [hasAnimated, setHasAnimated] = useState(false)
-  const counterRef = useRef(null)
+  const [statsVisible, setStatsVisible] = useState(false)
+  const sectionRefs = useRef([])
+  const statsRef = useRef(null)
 
   // Animated texts for hero section
   const animatedTexts = [
@@ -51,11 +51,19 @@ function LandingPage() {
     "Zero Wait Time"
   ]
 
+  // Target values for counters
+  const targetCounters = {
+    clubs: 50,
+    customers: 10000,
+    satisfaction: 98,
+    pickup: 5
+  }
+
   // Preloader effect
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 2000)
+    }, 1800)
     return () => clearTimeout(timer)
   }, [])
 
@@ -63,63 +71,58 @@ function LandingPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentAnimatedText((prev) => (prev + 1) % animatedTexts.length)
-    }, 2000)
+    }, 2200)
     return () => clearInterval(interval)
   }, [])
 
-  // Counter animation on page load and when in view
+  // Counter animation when stats become visible
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting && !hasAnimated) {
+          if (entry.isIntersecting && !statsVisible) {
+            setStatsVisible(true)
             startCounterAnimation()
-            setHasAnimated(true)
           }
         })
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     )
 
-    if (counterRef.current) {
-      observer.observe(counterRef.current)
+    if (statsRef.current) {
+      observer.observe(statsRef.current)
     }
 
     return () => {
-      if (counterRef.current) {
-        observer.unobserve(counterRef.current)
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current)
       }
     }
-  }, [hasAnimated])
+  }, [statsVisible])
 
   const startCounterAnimation = () => {
-    const targets = {
-      clubs: 50,
-      customers: 10000,
-      satisfaction: 98,
-      pickup: 5
-    }
-
     const duration = 2000 // 2 seconds
-    const startTime = Date.now()
-
-    const animate = () => {
-      const elapsed = Date.now() - startTime
-      const progress = Math.min(elapsed / duration, 1)
-
-      setCounters({
-        clubs: Math.floor(targets.clubs * progress),
-        customers: Math.floor(targets.customers * progress),
-        satisfaction: Math.floor(targets.satisfaction * progress),
-        pickup: Math.floor(targets.pickup * progress)
-      })
-
-      if (progress < 1) {
-        requestAnimationFrame(animate)
-      }
-    }
-
-    animate()
+    const steps = 60
+    const stepDuration = duration / steps
+    
+    Object.keys(targetCounters).forEach((key, index) => {
+      const target = targetCounters[key]
+      let current = 0
+      const increment = target / steps
+      
+      const timer = setInterval(() => {
+        current += increment
+        if (current >= target) {
+          current = target
+          clearInterval(timer)
+        }
+        
+        setCounters(prev => ({
+          ...prev,
+          [key]: Math.floor(current)
+        }))
+      }, stepDuration)
+    })
   }
 
   // Scroll animation observer
@@ -179,12 +182,12 @@ function LandingPage() {
     }
   ]
 
-  // Stats data with animated counters - USING FONT AWESOME ICON
+  // Stats data with animated counters
   const stats = [
     { 
       number: counters.clubs, 
       label: "Premium Clubs", 
-      icon: faCocktail, // Font Awesome icon
+      icon: faCocktail,
       suffix: "+"
     },
     { 
@@ -205,6 +208,14 @@ function LandingPage() {
       icon: faClock,
       suffix: "min"
     }
+  ]
+
+  // Hero stats data (these won't animate)
+  const heroStats = [
+    { number: "50+", label: "Premium Clubs", icon: faCocktail },
+    { number: "10K+", label: "Happy Customers", icon: faUsers },
+    { number: "98%", label: "Satisfaction Rate", icon: faGem },
+    { number: "5min", label: "Average Pickup Time", icon: faClock }
   ]
 
   // Featured clubs
@@ -241,16 +252,15 @@ function LandingPage() {
     }
   ]
 
-  // Hero image URL
+  // Hero image URL - Larger image
   const heroImageUrl = "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 
-  // Preloader Component - WITH FONT AWESOME ICON
+  // Preloader Component
   if (isLoading) {
     return (
       <div className="preloader">
         <div className="preloader-content">
           <div className="preloader-logo">
-            <FontAwesomeIcon icon={faCocktail} className="preloader-icon" />
             <span className="logo-text">ClubSync</span>
             <div className="logo-subtext">Nightlife Reimagined</div>
           </div>
@@ -265,7 +275,7 @@ function LandingPage() {
 
   return (
     <div className="landing-page">
-      {/* Hero Section */}
+      {/* Hero Section - Modern Blue Theme */}
       <section className="hero-section">
         <div className="hero-background-animation">
           <div className="hero-shapes">
@@ -281,6 +291,7 @@ function LandingPage() {
               <div className="hero-badge animated-badge">
                 <FontAwesomeIcon icon={faFire} className="badge-icon" />
                 <span>Trending Worldwide</span>
+                <div className="badge-glow"></div>
               </div>
               
               <h1 className="hero-title">
@@ -293,12 +304,14 @@ function LandingPage() {
                 in town. Enjoy seamless ordering, secure payments, and instant pickup with QR codes.
               </p>
               
-              {/* Animated Text */}
+              {/* Animated Text with enhanced animation */}
               <div className="animated-text-container">
                 <div className="animated-text-wrapper">
-                  <span className="animated-text">
-                    {animatedTexts[currentAnimatedText]}
-                  </span>
+                  <div className="text-rotator">
+                    <span className="animated-text">
+                      {animatedTexts[currentAnimatedText]}
+                    </span>
+                  </div>
                   <div className="animated-underline"></div>
                 </div>
               </div>
@@ -321,9 +334,24 @@ function LandingPage() {
                   <FontAwesomeIcon icon={faChartLine} /> For Club Owners
                 </Button>
               </div>
+
+              {/* Hero Stats */}
+              <div className="hero-stats" ref={statsRef}>
+                {heroStats.map((stat, index) => (
+                  <div key={index} className="hero-stat-item">
+                    <div className="stat-icon-wrapper pulse-icon">
+                      <FontAwesomeIcon icon={stat.icon} />
+                    </div>
+                    <div className="stat-content">
+                      <strong>{stat.number}</strong>
+                      <span>{stat.label}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Hero Image */}
+            {/* Hero Image with enhanced effects */}
             <div className="hero-image-container">
               <div className="hero-image-card">
                 <div className="image-wrapper zoom-container">
@@ -333,31 +361,57 @@ function LandingPage() {
                     className="hero-main-image zoom-image"
                   />
                   <div className="image-overlay-gradient"></div>
+                  <div className="image-shine"></div>
                   
-                  {/* Floating Elements */}
-                  <div className="floating-badge floating-badge-1">
-                    <FontAwesomeIcon icon={faQrcode} />
-                    <span>QR Pickup</span>
+                  {/* Enhanced Floating Elements */}
+                  <div className="floating-element floating-element-1">
+                    <div className="floating-icon">
+                      <FontAwesomeIcon icon={faQrcode} />
+                    </div>
+                    <div className="floating-content">
+                      <strong>QR Pickup</strong>
+                      <span>Instant access</span>
+                    </div>
                   </div>
-                  <div className="floating-badge floating-badge-2">
-                    <FontAwesomeIcon icon={faShieldAlt} />
-                    <span>Secure Payment</span>
+                  <div className="floating-element floating-element-2">
+                    <div className="floating-icon">
+                      <FontAwesomeIcon icon={faShieldAlt} />
+                    </div>
+                    <div className="floating-content">
+                      <strong>Secure Payment</strong>
+                      <span>Bank-level security</span>
+                    </div>
                   </div>
-                  <div className="floating-badge floating-badge-3">
-                    <FontAwesomeIcon icon={faClock} />
-                    <span>5 Min Pickup</span>
+                  <div className="floating-element floating-element-3">
+                    <div className="floating-icon">
+                      <FontAwesomeIcon icon={faClock} />
+                    </div>
+                    <div className="floating-content">
+                      <strong>5 Min Pickup</strong>
+                      <span>Zero wait time</span>
+                    </div>
                   </div>
                 </div>
                 
-                {/* Image Stats */}
+                {/* Image Stats with better styling */}
                 <div className="image-stats">
-                  <div className="image-stat">
-                    <strong>50+</strong>
-                    <span>Premium Clubs</span>
+                  <div className="image-stat-card">
+                    <div className="stat-icon">
+                      <FontAwesomeIcon icon={faCocktail} />
+                    </div>
+                    <div className="stat-details">
+                      <strong>50+</strong>
+                      <span>Premium Clubs</span>
+                    </div>
                   </div>
-                  <div className="image-stat">
-                    <strong>5%</strong>
-                    <span>Commission Only</span>
+                  <div className="image-stat-card highlight-stat">
+                    <div className="stat-icon">
+                      <FontAwesomeIcon icon={faWallet} />
+                    </div>
+                    <div className="stat-details">
+                      <strong>5%</strong>
+                      <span>Commission Only</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -365,32 +419,97 @@ function LandingPage() {
           </div>
         </div>
 
-        {/* Secure Payment Badge */}
+        {/* Enhanced Secure Payment Badge */}
         <div className="secure-payment-floating">
-          <div className="secure-badge">
-            <FontAwesomeIcon icon={faShieldAlt} />
+          <div className="secure-badge-glowing">
+            <div className="badge-icon-wrapper">
+              <FontAwesomeIcon icon={faShieldAlt} />
+            </div>
             <div className="badge-details">
               <strong>Secure Payments</strong>
               <span>5% Commission Only</span>
+            </div>
+            <div className="badge-pulse"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section - Enhanced */}
+      <section className="features-section">
+        <div className="container">
+          <div className="section-header">
+            <div className="section-icon">
+              <FontAwesomeIcon icon={faRocket} />
+            </div>
+            <h2 className="section-title">Why Choose ClubSync</h2>
+            <p className="section-subtitle">Experience the future of nightlife with our innovative platform</p>
+          </div>
+          <div className="features-grid">
+            <div className="feature-card">
+              <div className="feature-icon-container">
+                <FontAwesomeIcon icon={faSearch} />
+                <div className="icon-glow"></div>
+              </div>
+              <h3>Smart Discovery</h3>
+              <p>Find the best clubs and bars in your area with intelligent recommendations.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon-container">
+                <FontAwesomeIcon icon={faClock} />
+                <div className="icon-glow"></div>
+              </div>
+              <h3>Instant Ordering</h3>
+              <p>Place your order in seconds and track preparation in real-time.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon-container">
+                <FontAwesomeIcon icon={faQrcode} />
+                <div className="icon-glow"></div>
+              </div>
+              <h3>QR Code Pickup</h3>
+              <p>Unique QR codes for instant, contactless pickup at the club.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon-container">
+                <FontAwesomeIcon icon={faShieldAlt} />
+                <div className="icon-glow"></div>
+              </div>
+              <h3>Secure Payments</h3>
+              <p>Bank-level encryption with multiple secure payment options.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon-container">
+                <FontAwesomeIcon icon={faMobileAlt} />
+                <div className="icon-glow"></div>
+              </div>
+              <h3>Mobile First</h3>
+              <p>Seamless experience across all devices. Access anywhere, anytime.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon-container">
+                <FontAwesomeIcon icon={faChartLine} />
+                <div className="icon-glow"></div>
+              </div>
+              <h3>Smart Analytics</h3>
+              <p>Real-time insights for club owners to optimize operations.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section with COUNTER ANIMATION */}
-      <section className="stats-section" ref={counterRef}>
+      {/* Stats Section with animated counters */}
+      <section className="stats-section" ref={statsRef}>
         <div className="container">
           <div className="section-header">
+            <div className="section-icon">
+              <FontAwesomeIcon icon={faGem} />
+            </div>
             <h2 className="section-title">Our Impact in Numbers</h2>
-            <p className="section-subtitle">Join thousands who trust ClubSync</p>
+            <p className="section-subtitle">Join thousands who trust ClubSync for their nightlife experience</p>
           </div>
           <div className="stats-grid">
             {stats.map((stat, index) => (
-              <div 
-                key={index} 
-                className="stat-card counter-card"
-                onMouseEnter={() => !hasAnimated && startCounterAnimation()}
-              >
+              <div key={index} className="stat-card">
                 <div className="stat-icon-wrapper">
                   <FontAwesomeIcon icon={stat.icon} />
                 </div>
@@ -407,64 +526,13 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="features-section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Why Choose ClubSync</h2>
-            <p className="section-subtitle">Experience the future of nightlife with our innovative platform</p>
-          </div>
-          <div className="features-grid">
-            <div className="feature-card">
-              <div className="feature-icon-container">
-                <FontAwesomeIcon icon={faSearch} />
-              </div>
-              <h3>Smart Discovery</h3>
-              <p>Find the best clubs and bars in your area with intelligent recommendations.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon-container">
-                <FontAwesomeIcon icon={faClock} />
-              </div>
-              <h3>Instant Ordering</h3>
-              <p>Place your order in seconds and track preparation in real-time.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon-container">
-                <FontAwesomeIcon icon={faQrcode} />
-              </div>
-              <h3>QR Code Pickup</h3>
-              <p>Unique QR codes for instant, contactless pickup at the club.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon-container">
-                <FontAwesomeIcon icon={faShieldAlt} />
-              </div>
-              <h3>Secure Payments</h3>
-              <p>Bank-level encryption with multiple secure payment options.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon-container">
-                <FontAwesomeIcon icon={faMobileAlt} />
-              </div>
-              <h3>Mobile First</h3>
-              <p>Seamless experience across all devices. Access anywhere, anytime.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon-container">
-                <FontAwesomeIcon icon={faChartLine} />
-              </div>
-              <h3>Smart Analytics</h3>
-              <p>Real-time insights for club owners to optimize operations.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Clubs Section */}
+      {/* Featured Clubs Section - Larger Images */}
       <section className="featured-clubs-section">
         <div className="container">
           <div className="section-header">
+            <div className="section-icon">
+              <FontAwesomeIcon icon={faFire} />
+            </div>
             <h2 className="section-title">Featured Clubs</h2>
             <p className="section-subtitle">Discover the hottest spots in town</p>
           </div>
@@ -472,22 +540,31 @@ function LandingPage() {
             {featuredClubs.map(club => (
               <div key={club.id} className="club-card">
                 <div className="club-image-container">
-                  <img src={club.image} alt={club.name} className="club-image" />
+                  <img 
+                    src={club.image} 
+                    alt={club.name} 
+                    className="club-image"
+                    loading="lazy"
+                  />
                   <div className="club-image-overlay"></div>
                   <div className="club-badge">
-                    <FontAwesomeIcon icon={faFire} /> Trending
+                    <FontAwesomeIcon icon={faFire} />
+                    <span>Trending</span>
                   </div>
+                  <div className="image-hover-zoom"></div>
                 </div>
                 <div className="club-content">
                   <div className="club-header">
                     <h3 className="club-name">{club.name}</h3>
                     <div className="club-rating">
-                      <FontAwesomeIcon icon={faStar} /> {club.rating}
+                      <FontAwesomeIcon icon={faStar} />
+                      <span>{club.rating}</span>
                     </div>
                   </div>
                   <div className="club-meta">
                     <span className="club-distance">
-                      <FontAwesomeIcon icon={faMapMarkerAlt} /> {club.distance}
+                      <FontAwesomeIcon icon={faMapMarkerAlt} />
+                      {club.distance}
                     </span>
                     <span className="club-category">{club.category}</span>
                   </div>
@@ -495,7 +572,8 @@ function LandingPage() {
                   <div className="club-features">
                     {club.features.map((feature, index) => (
                       <span key={index} className="club-feature">
-                        <FontAwesomeIcon icon={faCheckCircle} /> {feature}
+                        <FontAwesomeIcon icon={faCheckCircle} />
+                        {feature}
                       </span>
                     ))}
                   </div>
@@ -504,7 +582,8 @@ function LandingPage() {
                     onClick={() => navigate('/signup/user')}
                     className="btn-view-club"
                   >
-                    View Menu <FontAwesomeIcon icon={faArrowRight} />
+                    View Menu
+                    <FontAwesomeIcon icon={faArrowRight} />
                   </Button>
                 </div>
               </div>
@@ -513,10 +592,14 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* FAQ Section - WORKING ACCORDION */}
+      {/* Other sections remain similar but will use updated CSS */}
+      {/* FAQ Section */}
       <section className="faq-section">
         <div className="container">
           <div className="section-header">
+            <div className="section-icon">
+              <FontAwesomeIcon icon={faQuestionCircle} />
+            </div>
             <h2 className="section-title">Frequently Asked Questions</h2>
             <p className="section-subtitle">Everything you need to know about ClubSync</p>
           </div>
@@ -546,10 +629,12 @@ function LandingPage() {
 
       {/* CTA Section */}
       <section className="cta-section">
+        <div className="cta-background"></div>
         <div className="container">
           <div className="cta-content">
             <div className="cta-badge">
-              <FontAwesomeIcon icon={faFire} /> Join the Revolution
+              <FontAwesomeIcon icon={faFire} />
+              <span>Join the Revolution</span>
             </div>
             <h2>Ready to Transform Your Nightlife Experience?</h2>
             <p className="cta-description">
@@ -561,7 +646,8 @@ function LandingPage() {
                 onClick={handleUserSignup}
                 className="btn-cta-primary"
               >
-                <FontAwesomeIcon icon={faGlassCheers} /> Start Ordering Now
+                <FontAwesomeIcon icon={faGlassCheers} />
+                Start Ordering Now
               </Button>
               <Button 
                 variant="outline" 
@@ -569,7 +655,8 @@ function LandingPage() {
                 onClick={handleClubSignup}
                 className="btn-cta-secondary"
               >
-                <FontAwesomeIcon icon={faChartLine} /> List Your Club
+                <FontAwesomeIcon icon={faChartLine} />
+                List Your Club
               </Button>
             </div>
           </div>

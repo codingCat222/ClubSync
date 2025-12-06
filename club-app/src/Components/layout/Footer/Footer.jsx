@@ -12,7 +12,7 @@ function Footer() {
           <div className="footer-section">
             <div className="footer-logo">
               <span className="logo-icon">🍸</span>
-              <span className="logo-text">ClubFlow</span>
+              <span className="logo-text">ClubSync</span>
             </div>
             <p className="footer-description">
               Order drinks instantly from your favorite clubs. Skip the wait, enjoy the night.
@@ -65,7 +65,7 @@ function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} ClubFlow. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} ClubSync. All rights reserved.</p>
           <div className="legal-links">
             <Link to="/privacy">Privacy Policy</Link>
             <Link to="/terms">Terms of Service</Link>

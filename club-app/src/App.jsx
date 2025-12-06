@@ -39,8 +39,8 @@ import SupportTickets from './pages/admin/SupportTickets/SupportTickets'
 import NotFound from './pages/shared/NotFound/NotFound'
 
 // Layout Components
-import Navbar from './components/layout/Navbar/Navbar'
-import Footer from './components/layout/Footer/Footer'
+import Navbar from './Components/layout/Navbar/Navbar'
+import Footer from './Components/layout/Footer/Footer'
 
 const queryClient = new QueryClient()
 

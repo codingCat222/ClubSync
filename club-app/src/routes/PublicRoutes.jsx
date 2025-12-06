@@ -12,7 +12,7 @@ import Clubs from '../pages/public/Clubs/Clubs';
 import ClubDetails from '../pages/public/ClubDetails/ClubDetails';
 
 // Layout Wrapper
-import LayoutWrapper from '../components/layout/LayoutWrapper';
+import LayoutWrapper from '../Components/layout/LayoutWrapper';
 
 // 404 Page
 import NotFound from '../pages/shared/NotFound/NotFound';
