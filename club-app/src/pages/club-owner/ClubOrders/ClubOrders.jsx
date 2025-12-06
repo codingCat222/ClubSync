@@ -13,7 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import Card from '../../../Components/common/Card/Card'
 import Button from '../../../Components/common/Button/Button'
-import Input from '../../../ Components/common/Input/Input'
+import Input from '../../../Components/common/Input/Input'
 import './ClubOrders.css'
 
 function ClubOrders() {
