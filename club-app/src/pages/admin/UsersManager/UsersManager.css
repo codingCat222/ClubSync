@@ -200,7 +200,7 @@
   color: var(--primary-color);
 }
 
-.user-type['club-owner'],
+ .user-type[data-user-type="club-owner"],
 .user-type.club-owner {
   background: rgba(16, 185, 129, 0.1);
   color: var(--success-color);
