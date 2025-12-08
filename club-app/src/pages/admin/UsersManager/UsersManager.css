@@ -1,6 +1,26 @@
-/* src/pages/admin/UsersManager/UsersManager.css */
+:root {
+  /* Color variables - add these or ensure they're defined elsewhere */
+  --primary-color: #2563eb;
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --dark-color: #1f2937;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --radius-full: 9999px;
+  --radius-md: 8px;
+  --transition-fast: 150ms ease;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-lg: 1.125rem;
+}
+
 .users-manager-page {
   min-height: calc(100vh - 200px);
+  padding: 24px;
 }
 
 .users-manager-header {
@@ -10,6 +30,9 @@
 .controls-card {
   margin-bottom: 32px;
   padding: 24px;
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .controls-content {
@@ -35,33 +58,56 @@
   font-weight: 500;
   color: var(--gray-700);
   transition: all var(--transition-fast);
+  cursor: pointer;
+  user-select: none;
 }
 
 .role-filter:hover {
   background: var(--gray-200);
+  transform: translateY(-1px);
+}
+
+.role-filter:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
 }
 
 .role-filter.active {
   background: var(--primary-color);
   color: white;
   border-color: var(--primary-color);
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.role-filter.active::before {
+  content: "✓ ";
+  font-weight: bold;
 }
 
 .users-table-section {
   margin-top: 32px;
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .table-responsive {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .users-table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 800px;
 }
 
 .users-table thead {
   background: var(--gray-100);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .users-table th {
@@ -71,6 +117,7 @@
   color: var(--gray-700);
   font-size: var(--text-sm);
   white-space: nowrap;
+  border-bottom: 2px solid var(--gray-200);
 }
 
 .users-table td {
@@ -79,8 +126,16 @@
   vertical-align: middle;
 }
 
+.users-table tbody tr {
+  transition: background-color var(--transition-fast);
+}
+
 .users-table tbody tr:hover {
   background: var(--gray-50);
+}
+
+.users-table tbody tr:last-child td {
+  border-bottom: none;
 }
 
 .user-info {
@@ -92,7 +147,7 @@
 .user-avatar {
   width: 40px;
   height: 40px;
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color), #1d4ed8);
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
@@ -107,16 +162,23 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+  min-width: 0; /* Allows text truncation */
 }
 
 .user-details strong {
   color: var(--dark-color);
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .user-details span {
   font-size: var(--text-sm);
   color: var(--gray-600);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .user-club {
@@ -138,7 +200,8 @@
   color: var(--primary-color);
 }
 
-.user-type['club-owner'] {
+.user-type['club-owner'],
+.user-type.club-owner {
   background: rgba(16, 185, 129, 0.1);
   color: var(--success-color);
 }
@@ -165,11 +228,13 @@
 .join-date {
   font-size: var(--text-sm);
   color: var(--gray-600);
+  white-space: nowrap;
 }
 
 .user-actions {
   display: flex;
   gap: 8px;
+  justify-content: flex-end;
 }
 
 .action-btn {
@@ -180,27 +245,95 @@
   align-items: center;
   justify-content: center;
   background: var(--gray-100);
-  border: none;
+  border: 1px solid var(--gray-200);
   color: var(--gray-700);
   font-size: var(--text-sm);
   transition: all var(--transition-fast);
+  cursor: pointer;
 }
 
 .action-btn:hover {
   background: var(--gray-200);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.action-btn:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Mobile optimizations */
 @media (max-width: 768px) {
-  .users-table {
-    min-width: 800px;
+  .users-manager-page {
+    padding: 16px;
+  }
+  
+  .controls-card {
+    padding: 16px;
+    margin-bottom: 24px;
   }
   
   .role-filters {
     overflow-x: auto;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
+    margin: 0 -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    scrollbar-width: thin;
+  }
+  
+  .role-filters::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .role-filters::-webkit-scrollbar-track {
+    background: var(--gray-100);
+  }
+  
+  .role-filters::-webkit-scrollbar-thumb {
+    background: var(--gray-300);
+    border-radius: var(--radius-full);
   }
   
   .role-filter {
     flex-shrink: 0;
+    padding: 8px 16px;
+    font-size: var(--text-sm);
   }
+  
+  .users-table th,
+  .users-table td {
+    padding: 12px 8px;
+  }
+  
+  .user-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: var(--text-sm);
+  }
+  
+  .user-details strong {
+    font-size: var(--text-sm);
+  }
+  
+  .user-details span {
+    font-size: var(--text-xs);
+  }
+}
+
+/* Empty state styling */
+.users-table tbody:empty::after {
+  content: "No users found";
+  display: block;
+  text-align: center;
+  padding: 48px;
+  color: var(--gray-500);
+  font-style: italic;
+}
+
+/* Loading state */
+.users-table.loading tbody tr {
+  opacity: 0.6;
+  pointer-events: none;
 }
